@@ -31,26 +31,45 @@ const Model = () => {
   const [smallRotation, setSmallRotation] = useState(0);
   const [largeRotation, setLargeRotation] = useState(0);
 
-  const tl = gsap.timeline();
+  // Initialize timeline in useGSAP for better lifecycle management, or ensure it's stable
+  const tl = useRef(gsap.timeline({
+    onStart: () => console.log("Model transition timeline started from tl ref"),
+    onComplete: () => console.log("Model transition timeline completed from tl ref"),
+  }));
 
   useEffect(() => {
+    console.log(`Model size changed to: ${size}. Small rotation: ${smallRotation}, Large rotation: ${largeRotation}`);
+
+    // Clear previous animations from the timeline before adding new ones
+    // to prevent appending to a completed or partially played timeline.
+    tl.current.clear();
+
     if (size === "large") {
-      animateWithGsapTimeline(tl, small, smallRotation, "#view1", "#view2", {
+      animateWithGsapTimeline(tl.current, small, smallRotation, "#view1", "#view2", {
         transform: "translateX(-100%)",
         duration: 2,
+        ease: "expo.inOut", // Added ease
       });
     }
 
     if (size === "small") {
-      animateWithGsapTimeline(tl, large, largeRotation, "#view2", "#view1", {
+      animateWithGsapTimeline(tl.current, large, largeRotation, "#view2", "#view1", {
         transform: "translateX(0)",
         duration: 2,
+        ease: "expo.inOut", // Added ease
       });
     }
-  }, [size]);
+    // Optionally, restart the timeline if it might have completed.
+    // tl.current.play(0); // This ensures it plays from the start.
+    // However, animateWithGsapTimeline just adds to it. GSAP handles playing new tweens.
+  }, [size, smallRotation, largeRotation]); // Added smallRotation and largeRotation to dependencies
 
   useGSAP(() => {
+    // Initial animation for the heading, independent of model size changes
     gsap.to("#heading", { y: 0, opacity: 1 });
+
+    // Initialize the timeline reference here if preferred
+    // tl.current = gsap.timeline(...);
   }, []);
 
   return (

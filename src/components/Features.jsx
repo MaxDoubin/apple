@@ -10,40 +10,49 @@ const Features = () => {
   const videoRef = useRef();
 
   useGSAP(() => {
+    console.log("Setting up Features animations");
     gsap.to("#explore-video", {
       scrollTrigger: {
         trigger: "#explore-video",
-        toggleActions: "play pause reverse restart",
+        toggleActions: "play pause resume pause", // Changed toggleActions
         start: "-10% bottom",
+        onEnter: () => console.log("Video onEnter"),
+        onLeave: () => console.log("Video onLeave"),
+        onEnterBack: () => console.log("Video onEnterBack"),
+        onLeaveBack: () => console.log("Video onLeaveBack"),
       },
       onComplete: () => {
+        // This onComplete might be tied to the GSAP animation itself, not ScrollTrigger lifecycle directly.
+        // If the GSAP animation is just to enable ScrollTrigger, it might complete immediately.
+        // Consider if videoRef.current.play() is better suited for onEnter or onToggle.
+        console.log("GSAP animation for #explore-video complete, attempting video play");
         videoRef.current.play();
       },
     });
 
-    animateWithGsap("#features-title", {
-      y: 0,
-      opacity: 1,
-    });
+    animateWithGsap(
+      "#features-title",
+      { y: 0, opacity: 1, ease: "power2.out", duration: 1.2 }, // Added ease and duration
+      { toggleActions: "play none none reverse" }, // Changed toggleActions
+    );
 
     animateWithGsap(
       ".g_grow",
       {
         scale: 1,
         opacity: 1,
-        ease: "power1",
+        ease: "power2.out", // Changed ease
       },
       {
-        scrub: 5.5,
+        scrub: 2, // Changed scrub value
       },
     );
 
-    animateWithGsap(".g_text", {
-      y: 0,
-      opacity: 1,
-      ease: "power2.inOut",
-      duration: 1,
-    });
+    animateWithGsap(
+      ".g_text",
+      { y: 0, opacity: 1, ease: "power2.inOut", duration: 1 },
+      { toggleActions: "play none none reverse" }, // Changed toggleActions
+    );
   }, []);
 
   return (

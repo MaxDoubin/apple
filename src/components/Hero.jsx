@@ -22,22 +22,38 @@ const Hero = () => {
   }, []);
 
   useGSAP(() => {
+    console.log("Hero animations starting");
+    // Animate #hero title
+    // Assuming #hero starts at opacity 0 and some y offset via CSS (e.g., hero-title class)
+    // Or, for a guaranteed start, set initial style: e.g., style={{ opacity: 0, transform: 'translateY(20px)' }} on the <p>
+    // For now, we follow the task's direct GSAP call.
     gsap.to("#hero", {
       opacity: 1,
-      delay: 2,
+      y: 0, // Animate to y=0 (its natural position)
+      duration: 1.5,
+      ease: "expo.out",
+      delay: 1.5,
+      onStart: () => console.log("Hero title animation started"),
     });
 
-    gsap.to("#cta", {
-      opacity: 1,
-      y: -50,
-      delay: 2,
+    // Animate #cta children (button and text)
+    // #cta itself is initially opacity-0 and translate-y-20 via className
+    // We animate its children from a further offset and opacity 0
+    gsap.from("#cta > *", {
+      opacity: 0,
+      y: 20, // Start 20px below their final position within #cta
+      duration: 1,
+      ease: "expo.out",
+      delay: 1.8, // Slightly after the hero title
+      stagger: 0.2,
+      onStart: () => console.log("CTA children animation started"),
     });
   }, []);
 
   return (
     <section className="nav-height relative w-full bg-black">
       <div className="flex-center h-5/6 w-full flex-col">
-        <p id="hero" className="hero-title">
+        <p id="hero" className="hero-title" style={{ opacity: 0 }}> {/* Ensure hero starts invisible for the animation */}
           iPhone 15 Pro
         </p>
 

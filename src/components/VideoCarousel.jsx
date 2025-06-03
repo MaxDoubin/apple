@@ -22,11 +22,19 @@ const VideoCarousel = () => {
 
   const { isEnd, isLastVideo, startPlay, videoId, isPlaying } = video;
 
+  useEffect(() => {
+    console.log("Video ID changed:", videoId);
+  }, [videoId]);
+
+  useEffect(() => {
+    console.log("isPlaying changed:", isPlaying);
+  }, [isPlaying]);
+
   useGSAP(() => {
     gsap.to("#slider", {
       transform: `translateX(${-100 * videoId}%)`,
-      duration: 2,
-      ease: "power2.inOut",
+      duration: 2.5, // Increased duration
+      ease: "expo.out", // Changed ease
     });
     gsap.to("#video", {
       scrollTrigger: {
@@ -64,6 +72,7 @@ const VideoCarousel = () => {
 
           if (progress !== currentProgress) {
             currentProgress = progress;
+            console.log(`Video ${videoId} progress: ${currentProgress}%`);
 
             gsap.to(videoDivRef.current[videoId], {
               width:
@@ -72,18 +81,24 @@ const VideoCarousel = () => {
                   : window.innerWidth < 1200
                     ? "10vw"
                     : "4vw",
+              duration: 0.3, // Added duration
+              ease: "power2.out", // Added ease
             });
 
             gsap.to(span[videoId], {
               width: `${currentProgress}%`,
               backgroundColor: "white",
+              ease: "none", // Changed ease to linear
             });
           }
         },
         onComplete: () => {
+          console.log(`Video ${videoId} onComplete triggered. isPlaying: ${isPlaying}`);
           if (isPlaying) {
             gsap.to(videoDivRef.current[videoId], {
               width: "12px",
+              duration: 0.3, // Added duration
+              ease: "power2.in", // Added ease
             });
 
             gsap.to(span[videoId], {
@@ -108,6 +123,7 @@ const VideoCarousel = () => {
   }, [videoId, startPlay]);
 
   const handleProcess = (type, i) => {
+    console.log("handleProcess called with type:", type, "and i:", i);
     switch (type) {
       case "video-end":
         setVideo((pre) => ({ ...pre, isEnd: true, videoId: i + 1 }));

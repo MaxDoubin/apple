@@ -21,19 +21,23 @@ export const animateWithGsapTimeline = (
   rotationState,
   firstTarget,
   secondTarget,
-  animationProps,
+  animationProps, // Expect animationProps to potentially contain duration and ease
 ) => {
+  // Destructure duration and ease from animationProps, providing defaults if not present
+  const { duration = 1, ease = "power2.inOut", ...restAnimationProps } = animationProps;
+
   timeline.to(rotationRef.current.rotation, {
     y: rotationState,
-    duration: 1,
-    ease: "power2.inOut",
+    duration: duration, // Use duration from animationProps
+    ease: ease,       // Use ease from animationProps
   });
 
   timeline.to(
     firstTarget,
     {
-      ...animationProps,
-      ease: "power2.inOut",
+      ...restAnimationProps, // Pass remaining animation props
+      duration: duration,   // Ensure this also uses the main duration
+      ease: ease,           // And the main ease
     },
     "<",
   );
@@ -41,8 +45,9 @@ export const animateWithGsapTimeline = (
   timeline.to(
     secondTarget,
     {
-      ...animationProps,
-      ease: "power2.inOut",
+      ...restAnimationProps, // Pass remaining animation props
+      duration: duration,   // And this one too
+      ease: ease,           // And the main ease
     },
     "<",
   );
