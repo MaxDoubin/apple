@@ -66,7 +66,7 @@ const Hero = () => {
         <a href="#highlights" className="btn">
           Explore highlights
         </a>
-        <p className="text-xl font-normal">From $199/month or $999</p>
+        <p className="text-xl font-normal">Unofficial interactive product demo</p>
       </div>
     </section>
   );
