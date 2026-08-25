@@ -177,7 +177,7 @@ const VideoCarousel = () => {
             <span
               key={i}
               ref={(el) => (videoDivRef.current[i] = el)}
-              className="relative mx-2 size-3 cursor-pointer rounded-full bg-gray-200"
+              className="relative mx-2 size-3 rounded-full bg-gray-200"
             >
               <span
                 className="absolute size-full rounded-full"
