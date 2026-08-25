@@ -130,9 +130,13 @@ const VideoCarousel = () => {
         }));
         break;
 
-      case "video-reset":
+      case "video-reset": {
+        const firstVideo = videoRef.current[0];
+        if (firstVideo) firstVideo.currentTime = 0;
+
         setVideo((pre) => ({ ...pre, isLastVideo: false, videoId: 0 }));
         break;
+      }
 
       case "play":
       case "pause":
