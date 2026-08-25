@@ -31,7 +31,7 @@ const HowItWorks = () => {
     <section aria-labelledby="how-it-works-title" className="common-padding">
       <div className="screen-max-width">
         <div id="chip" className="flex-center my-20 w-full">
-          <img src={chipImg} alt="Chip" width={180} height={180} />
+          <img src={chipImg} alt="A17 Pro chip" width={180} height={180} />
         </div>
 
         <div className="flex flex-col items-center">
