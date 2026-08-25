@@ -134,7 +134,12 @@ const VideoCarousel = () => {
         const firstVideo = videoRef.current[0];
         if (firstVideo) firstVideo.currentTime = 0;
 
-        setVideo((pre) => ({ ...pre, isLastVideo: false, videoId: 0 }));
+        setVideo((pre) => ({
+          ...pre,
+          isLastVideo: false,
+          isPlaying: true,
+          videoId: 0,
+        }));
         break;
       }
 
