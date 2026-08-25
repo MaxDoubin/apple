@@ -189,6 +189,7 @@ const VideoCarousel = () => {
         </div>
 
         <button
+          type="button"
           className="control-btn"
           onClick={
             isLastVideo
