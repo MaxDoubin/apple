@@ -50,9 +50,9 @@ const Features = () => {
     <section className="common-padding bg-zinc relative h-full overflow-hidden">
       <div className="screen-max-width">
         <div className="mb-12 w-full">
-          <h1 id="features-title" className="section-heading">
+          <h2 id="features-title" className="section-heading">
             Explore the full story.
-          </h1>
+          </h2>
         </div>
 
         <div className="flex flex-col items-center justify-center overflow-hidden">
