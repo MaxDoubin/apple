@@ -144,7 +144,7 @@ const VideoCarousel = () => {
                   muted
                   ref={(el) => (videoRef.current[i] = el)}
                   onEnded={() =>
-                    i !== 3
+                    i < hightlightsSlides.length - 1
                       ? handleProcess("video-end", i)
                       : handleProcess("video-last")
                   }
