@@ -185,7 +185,10 @@ const VideoCarousel = () => {
       </div>
 
       <div className="flex-center relative mt-10">
-        <div className="flex-center rounded-full bg-gray-300 px-7 py-5 backdrop-blur">
+        <div
+          aria-hidden="true"
+          className="flex-center rounded-full bg-gray-300 px-7 py-5 backdrop-blur"
+        >
           {hightlightsSlides.map((slide, i) => (
             <span
               key={slide.id}
