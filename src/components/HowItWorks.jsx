@@ -50,7 +50,7 @@ const HowItWorks = () => {
             <div className="overflow-hidden">
               <img
                 src={frameImg}
-                alt="Frame"
+                alt=""
                 className="relative z-10 bg-transparent"
               />
             </div>
