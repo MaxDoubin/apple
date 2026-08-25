@@ -50,6 +50,7 @@ const Hero = () => {
             autoPlay
             muted
             playsInline
+            aria-hidden="true"
             key={videoSrc}
             className="pointer-events-none"
           >
