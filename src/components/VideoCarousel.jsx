@@ -23,7 +23,7 @@ const VideoCarousel = () => {
   const { isEnd, isLastVideo, startPlay, videoId, isPlaying } = video;
 
   useGSAP(() => {
-    gsap.to("#slider", {
+    gsap.to(".carousel-slide", {
       transform: `translateX(${-100 * videoId}%)`,
       duration: 2,
       ease: "power2.inOut",
@@ -135,7 +135,7 @@ const VideoCarousel = () => {
     <>
       <div className="flex items-center">
         {hightlightsSlides.map((list, i) => (
-          <div key={list.id} id="slider" className="pr-10 sm:pr-20">
+          <div key={list.id} className="carousel-slide pr-10 sm:pr-20">
             <div className="video-carousel_container">
               <div className="flex-center size-full overflow-hidden rounded-3xl bg-black">
                 <video
