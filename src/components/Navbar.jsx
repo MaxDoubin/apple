@@ -11,13 +11,13 @@ const Navbar = () => {
           <img src={appleImg} alt="Apple" width={14} height={18} />
         </a>
 
-        <div className="flex flex-1 justify-center max-sm:hidden">
+        <ul className="flex flex-1 justify-center max-sm:hidden">
           {navLists.map((nav) => (
-            <div key={nav} className="text-gray px-5 text-sm">
+            <li key={nav} className="text-gray px-5 text-sm">
               {nav}
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className="flex items-baseline gap-7 max-sm:flex-1 max-sm:justify-end">
           <button
