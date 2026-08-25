@@ -39,7 +39,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="nav-height relative w-full bg-black">
+    <section
+      aria-labelledby="hero"
+      className="nav-height relative w-full bg-black"
+    >
       <div className="flex-center h-5/6 w-full flex-col">
         <h1 id="hero" className="hero-title">
           iPhone 15 Pro
