@@ -17,8 +17,8 @@ const Footer = () => {
 
         <div className="flex flex-col justify-between md:flex-row md:items-center">
           <p className="text-gray text-xs font-semibold">
-            &copy; {new Date().getFullYear()} Apple Clone Inc. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} iPhone 15 Pro Demo. Unofficial
+            educational project.
           </p>
 
           <div className="flex">
