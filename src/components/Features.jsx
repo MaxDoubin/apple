@@ -62,7 +62,7 @@ const Features = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center overflow-hidden">
-          <div className="mb-24 mt-32 pl-24">
+          <div className="mb-24 mt-32 pl-0 sm:pl-24">
             <h2 className="text-5xl font-semibold lg:text-7xl">iPhone.</h2>
             <h2 className="text-5xl font-semibold lg:text-7xl">
               Forged in titanium.
