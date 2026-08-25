@@ -24,9 +24,7 @@ const Footer = () => {
           <div className="flex">
             {footerLinks.map((link, i) => (
               <p key={link} className="text-gray text-xs font-semibold">
-                <span className="mx-2 cursor-pointer hover:underline">
-                  {link}
-                </span>
+                <span className="mx-2">{link}</span>
                 {i !== footerLinks.length - 1 && "|"}
               </p>
             ))}
