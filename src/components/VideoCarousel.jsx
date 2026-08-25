@@ -172,9 +172,9 @@ const VideoCarousel = () => {
 
       <div className="flex-center relative mt-10">
         <div className="flex-center rounded-full bg-gray-300 px-7 py-5 backdrop-blur">
-          {videoRef.current.map((_, i) => (
+          {hightlightsSlides.map((slide, i) => (
             <span
-              key={i}
+              key={slide.id}
               ref={(el) => (videoDivRef.current[i] = el)}
               className="relative mx-2 size-3 rounded-full bg-gray-200"
             >
