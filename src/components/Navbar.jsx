@@ -6,7 +6,7 @@ import { navLists, sourceCode } from "../constants";
 const Navbar = () => {
   return (
     <header className="flex w-full items-center justify-between p-5 sm:px-10">
-      <nav className="screen-max-width flex w-full">
+      <nav aria-label="Primary" className="screen-max-width flex w-full">
         <a href="#">
           <img src={appleImg} alt="Apple" width={14} height={18} />
         </a>
