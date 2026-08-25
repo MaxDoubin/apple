@@ -56,6 +56,7 @@ const HowItWorks = () => {
             </div>
             <div className="hiw-video">
               <video
+                aria-hidden="true"
                 className="pointer-events-none"
                 playsInline
                 preload="none"
