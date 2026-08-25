@@ -23,9 +23,14 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-baseline gap-7 max-sm:flex-1 max-sm:justify-end">
-          <a href="#">
-            <img src={searchImg} alt="Search" width={18} height={18} />
-          </a>
+          <button
+            type="button"
+            aria-label="Search is not available in this demo"
+            title="Search is not available in this demo"
+            disabled
+          >
+            <img src={searchImg} alt="" width={18} height={18} />
+          </button>
           <a href="#">
             <img src={bagImg} alt="Bag" width={18} height={18} />
           </a>
