@@ -54,7 +54,7 @@ const Model = () => {
   }, []);
 
   return (
-    <section className="common-padding">
+    <section aria-labelledby="heading" className="common-padding">
       <div className="screen-max-width">
         <h2 id="heading" className="section-heading">
           Take a closer look.
