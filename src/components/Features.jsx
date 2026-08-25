@@ -7,7 +7,7 @@ import { explore1Img, explore2Img, exploreVideo } from "../assets";
 import { animateWithGsap } from "../utils/animations";
 
 const Features = () => {
-  const videoRef = useRef();
+  const videoRef = useRef(null);
 
   useGSAP(() => {
     gsap.to("#explore-video", {
