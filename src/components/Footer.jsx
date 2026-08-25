@@ -8,15 +8,8 @@ const Footer = () => {
       <div className="screen-max-width">
         <div>
           <p className="text-gray text-xs font-semibold">
-            More ways to shop:{" "}
-            <span className="text-blue cursor-pointer hover:underline">
-              Find an Apple Store
-            </span>{" "}
-            or{" "}
-            <span className="text-blue cursor-pointer hover:underline">
-              other retailer
-            </span>{" "}
-            near you.
+            This is an unofficial educational demo and does not provide
+            shopping functionality.
           </p>
           <p className="text-gray text-xs font-semibold">
             Or call{" "}
