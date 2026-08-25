@@ -26,6 +26,12 @@ const Hero = () => {
   }, []);
 
   useGSAP(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      gsap.set("#hero", { opacity: 1 });
+      gsap.set("#cta", { opacity: 1, y: -50 });
+      return;
+    }
+
     gsap.to("#hero", {
       opacity: 1,
       delay: 2,
