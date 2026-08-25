@@ -12,7 +12,6 @@ const VideoCarousel = () => {
   const videoDivRef = useRef([]);
 
   const [video, setVideo] = useState({
-    isEnd: false,
     startPlay: false,
     videoId: 0,
     isLastVideo: false,
@@ -20,7 +19,7 @@ const VideoCarousel = () => {
   });
   const [loadedData, setLoadedData] = useState([]);
 
-  const { isEnd, isLastVideo, startPlay, videoId, isPlaying } = video;
+  const { isLastVideo, startPlay, videoId, isPlaying } = video;
 
   useGSAP(() => {
     gsap.to(".carousel-slide", {
@@ -41,7 +40,7 @@ const VideoCarousel = () => {
         }));
       },
     });
-  }, [isEnd, videoId]);
+  }, [videoId]);
 
   useEffect(() => {
     const activeVideo = videoRef.current[videoId];
@@ -120,7 +119,7 @@ const VideoCarousel = () => {
   const handleProcess = (type, i) => {
     switch (type) {
       case "video-end":
-        setVideo((pre) => ({ ...pre, isEnd: true, videoId: i + 1 }));
+        setVideo((pre) => ({ ...pre, videoId: i + 1 }));
         break;
 
       case "video-last":
