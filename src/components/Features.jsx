@@ -77,7 +77,6 @@ const Features = () => {
                 className="size-full object-cover object-center"
                 preload="none"
                 muted
-                autoPlay
                 ref={videoRef}
               >
                 <source src={exploreVideo} type="video/mp4" />
