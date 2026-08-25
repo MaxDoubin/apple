@@ -103,10 +103,12 @@ const VideoCarousel = () => {
       if (videoId === 0) anim.restart();
 
       const animUpdate = () => {
-        anim.progress(
-          videoRef.current[videoId].currentTime /
-            hightlightsSlides[videoId].videoDuration,
-        );
+        const activeVideo = videoRef.current[videoId];
+        const activeSlide = hightlightsSlides[videoId];
+
+        if (!activeVideo || !activeSlide) return;
+
+        anim.progress(activeVideo.currentTime / activeSlide.videoDuration);
       };
 
       if (isPlaying) gsap.ticker.add(animUpdate);
