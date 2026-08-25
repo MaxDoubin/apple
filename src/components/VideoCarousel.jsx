@@ -150,7 +150,7 @@ const VideoCarousel = () => {
               <div className="flex-center size-full overflow-hidden rounded-3xl bg-black">
                 <video
                   playsInline
-                  preload="auto"
+                  preload="metadata"
                   muted
                   aria-hidden="true"
                   ref={(el) => (videoRef.current[i] = el)}
