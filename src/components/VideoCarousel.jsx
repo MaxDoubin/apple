@@ -28,9 +28,9 @@ const VideoCarousel = () => {
       duration: 2,
       ease: "power2.inOut",
     });
-    gsap.to("#video", {
+    gsap.to(".carousel-video", {
       scrollTrigger: {
-        trigger: "#video",
+        trigger: ".carousel-video",
         toggleActions: "restart none none none",
       },
       onComplete: () => {
@@ -139,7 +139,6 @@ const VideoCarousel = () => {
             <div className="video-carousel_container">
               <div className="flex-center size-full overflow-hidden rounded-3xl bg-black">
                 <video
-                  id="video"
                   playsInline
                   preload="auto"
                   muted
@@ -153,7 +152,7 @@ const VideoCarousel = () => {
                     setVideo((prevVideo) => ({ ...prevVideo, isPlaying: true }))
                   }
                   onLoadedMetadata={(e) => handleLoadedMetadata(i, e)}
-                  className={`${list.id === 2 && "translate-x-44"} pointer-events-none`}
+                  className={`${list.id === 2 && "translate-x-44"} carousel-video pointer-events-none`}
                 >
                   <source src={list.video} type="video/mp4" />
                 </video>
