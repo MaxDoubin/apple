@@ -13,15 +13,16 @@ const getInitialVideoSource = () =>
 const Hero = () => {
   const [videoSrc, setVideoSrc] = useState(getInitialVideoSource);
 
-  const handleVideoSrcSet = () => {
-    if (window.innerWidth < 760) setVideoSrc(smallHeroVideo);
-    else setVideoSrc(heroVideo);
-  };
-
   useEffect(() => {
-    window.addEventListener("resize", handleVideoSrcSet);
+    const mediaQuery = window.matchMedia("(max-width: 759px)");
+    const updateVideoSource = ({ matches }) => {
+      setVideoSrc(matches ? smallHeroVideo : heroVideo);
+    };
 
-    return () => window.removeEventListener("resize", handleVideoSrcSet);
+    updateVideoSource(mediaQuery);
+    mediaQuery.addEventListener("change", updateVideoSource);
+
+    return () => mediaQuery.removeEventListener("change", updateVideoSource);
   }, []);
 
   useGSAP(() => {
