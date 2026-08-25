@@ -190,6 +190,13 @@ const VideoCarousel = () => {
 
         <button
           type="button"
+          aria-label={
+            isLastVideo
+              ? "Replay highlights"
+              : !isPlaying
+                ? "Play highlights"
+                : "Pause highlights"
+          }
           className="control-btn"
           onClick={
             isLastVideo
@@ -201,7 +208,7 @@ const VideoCarousel = () => {
         >
           <img
             src={isLastVideo ? replayImg : !isPlaying ? playImg : pauseImg}
-            alt={isLastVideo ? "Replay" : !isPlaying ? "Play" : "Pause"}
+            alt=""
           />
         </button>
       </div>
