@@ -20,8 +20,8 @@ const Model = () => {
   });
 
   // camera control for the model view
-  const cameraControlSmall = useRef();
-  const cameraControlLarge = useRef();
+  const cameraControlSmall = useRef(null);
+  const cameraControlLarge = useRef(null);
 
   // model
   const small = useRef(new THREE.Group());
