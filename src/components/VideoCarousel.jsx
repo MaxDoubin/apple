@@ -44,10 +44,12 @@ const VideoCarousel = () => {
   }, [isEnd, videoId]);
 
   useEffect(() => {
-    if (loadedData.length >= hightlightsSlides.length) {
-      if (!isPlaying) videoRef.current[videoId].pause();
-      else startPlay && videoRef.current[videoId].play();
-    }
+    const activeVideo = videoRef.current[videoId];
+
+    if (!activeVideo || loadedData.length < hightlightsSlides.length) return;
+
+    if (!isPlaying) activeVideo.pause();
+    else if (startPlay) activeVideo.play();
   }, [startPlay, videoId, isPlaying, loadedData]);
 
   const handleLoadedMetadata = (i, e) => setLoadedData((pre) => [...pre, e]);
