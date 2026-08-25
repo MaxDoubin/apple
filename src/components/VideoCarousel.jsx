@@ -160,7 +160,10 @@ const VideoCarousel = () => {
                       : handleProcess("video-last")
                   }
                   onPlay={() =>
-                    setVideo((prevVideo) => ({ ...prevVideo, isPlaying: true }))
+                    setVideo((current) => ({ ...current, isPlaying: true }))
+                  }
+                  onPause={() =>
+                    setVideo((current) => ({ ...current, isPlaying: false }))
                   }
                   onLoadedMetadata={handleLoadedMetadata}
                   className={`${list.id === 2 && "translate-x-44"} carousel-video pointer-events-none`}
