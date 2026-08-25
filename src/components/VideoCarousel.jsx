@@ -198,7 +198,6 @@ const VideoCarousel = () => {
               <span
                 className="absolute size-full rounded-full"
                 ref={(el) => (videoSpanRef.current[i] = el)}
-                title="video progress bar"
               />
             </span>
           ))}
