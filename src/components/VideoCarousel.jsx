@@ -44,7 +44,7 @@ const VideoCarousel = () => {
   }, [isEnd, videoId]);
 
   useEffect(() => {
-    if (loadedData.length > 3) {
+    if (loadedData.length >= hightlightsSlides.length) {
       if (!isPlaying) videoRef.current[videoId].pause();
       else startPlay && videoRef.current[videoId].play();
     }
