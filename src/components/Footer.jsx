@@ -11,13 +11,6 @@ const Footer = () => {
             This is an unofficial educational demo and does not provide
             shopping functionality.
           </p>
-          <p className="text-gray text-xs font-semibold">
-            Or call{" "}
-            <span className="text-blue cursor-pointer hover:underline">
-              (800) 555-0100
-            </span>
-            .
-          </p>
         </div>
 
         <div className="my-5 h-px w-full bg-neutral-700" aria-hidden />
