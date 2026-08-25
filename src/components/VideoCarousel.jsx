@@ -116,6 +116,8 @@ const VideoCarousel = () => {
 
       if (isPlaying) gsap.ticker.add(animUpdate);
       else gsap.ticker.remove(animUpdate);
+
+      return () => gsap.ticker.remove(animUpdate);
     }
   }, [videoId, startPlay]);
 
