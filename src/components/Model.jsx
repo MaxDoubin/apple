@@ -126,12 +126,15 @@ const Model = () => {
             <div className="flex-center">
               <ul className="color-container">
                 {models.map((item) => (
-                  <li
-                    key={item.id}
-                    className="w-6 h-6 rounded-full mx-2 cursor-pointer"
-                    style={{ backgroundColor: item.color[0] }}
-                    onClick={() => setModel(item)}
-                  />
+                  <li key={item.id}>
+                    <button
+                      type="button"
+                      aria-label={item.title}
+                      className="w-6 h-6 rounded-full mx-2 cursor-pointer"
+                      style={{ backgroundColor: item.color[0] }}
+                      onClick={() => setModel(item)}
+                    />
+                  </li>
                 ))}
               </ul>
 
