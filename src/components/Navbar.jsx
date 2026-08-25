@@ -31,9 +31,14 @@ const Navbar = () => {
           >
             <img src={searchImg} alt="" width={18} height={18} />
           </button>
-          <a href="#">
-            <img src={bagImg} alt="Bag" width={18} height={18} />
-          </a>
+          <button
+            type="button"
+            aria-label="Shopping bag is not available in this demo"
+            title="Shopping bag is not available in this demo"
+            disabled
+          >
+            <img src={bagImg} alt="" width={18} height={18} />
+          </button>
           <a
             href={sourceCode}
             target="_blank"
