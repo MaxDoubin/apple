@@ -69,7 +69,6 @@ const VideoCarousel = () => {
     const span = videoSpanRef.current;
 
     if (span[videoId]) {
-      // animate the progress of the video
       const anim = gsap.to(span[videoId], {
         onUpdate: () => {
           const progress = Math.ceil(anim.progress() * 100);
@@ -153,6 +152,7 @@ const VideoCarousel = () => {
                   playsInline
                   preload="auto"
                   muted
+                  aria-hidden="true"
                   ref={(el) => (videoRef.current[i] = el)}
                   onEnded={() =>
                     i < hightlightsSlides.length - 1
