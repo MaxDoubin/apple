@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="p-5 sm:px-10">
       <div className="screen-max-width">
-        <div className="">
+        <div>
           <p className="text-gray text-xs font-semibold">
             More ways to shop:{" "}
             <span className="text-blue cursor-pointer hover:underline">
