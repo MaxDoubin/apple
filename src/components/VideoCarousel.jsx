@@ -60,7 +60,9 @@ const VideoCarousel = () => {
     }
   }, [startPlay, videoId, isPlaying, loadedData]);
 
-  const handleLoadedMetadata = (i, e) => setLoadedData((pre) => [...pre, e]);
+  const handleLoadedMetadata = (event) => {
+    setLoadedData((previous) => [...previous, event]);
+  };
 
   useEffect(() => {
     let currentProgress = 0;
@@ -161,7 +163,7 @@ const VideoCarousel = () => {
                   onPlay={() =>
                     setVideo((prevVideo) => ({ ...prevVideo, isPlaying: true }))
                   }
-                  onLoadedMetadata={(e) => handleLoadedMetadata(i, e)}
+                  onLoadedMetadata={handleLoadedMetadata}
                   className={`${list.id === 2 && "translate-x-44"} carousel-video pointer-events-none`}
                 >
                   <source src={list.video} type="video/mp4" />
