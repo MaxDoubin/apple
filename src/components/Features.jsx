@@ -89,7 +89,7 @@ const Features = () => {
                 <div className="h-[50vh] flex-1 overflow-hidden">
                   <img
                     src={explore1Img}
-                    alt="Titanium"
+                    alt=""
                     className="feature-video g_grow"
                   />
                 </div>
@@ -97,7 +97,7 @@ const Features = () => {
                 <div className="h-[50vh] flex-1 overflow-hidden">
                   <img
                     src={explore2Img}
-                    alt="Titanium 2"
+                    alt=""
                     className="feature-video g_grow"
                   />
                 </div>
