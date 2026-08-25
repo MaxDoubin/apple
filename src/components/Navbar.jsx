@@ -30,7 +30,7 @@ const Navbar = () => {
             <img src={bagImg} alt="Bag" width={18} height={18} />
           </a>
           <a href={sourceCode} target="_blank" rel="noreferrer noopener">
-            <img src={githubImg} alt="Bag" width={18} height={18} />
+            <img src={githubImg} alt="GitHub source code" width={18} height={18} />
           </a>
         </div>
       </nav>
