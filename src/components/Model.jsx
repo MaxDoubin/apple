@@ -34,6 +34,13 @@ const Model = () => {
   const timeline = useRef(null);
   if (!timeline.current) timeline.current = gsap.timeline();
 
+  useEffect(
+    () => () => {
+      timeline.current?.kill();
+    },
+    [],
+  );
+
   useEffect(() => {
     if (size === "large") {
       animateWithGsapTimeline(
