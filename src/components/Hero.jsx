@@ -5,10 +5,13 @@ import gsap from "gsap";
 
 import { heroVideo, smallHeroVideo } from "../assets";
 
+const getInitialVideoSource = () =>
+  typeof window !== "undefined" && window.innerWidth < 760
+    ? smallHeroVideo
+    : heroVideo;
+
 const Hero = () => {
-  const [videoSrc, setVideoSrc] = useState(
-    window.innerWidth < 760 ? smallHeroVideo : heroVideo,
-  );
+  const [videoSrc, setVideoSrc] = useState(getInitialVideoSource);
 
   const handleVideoSrcSet = () => {
     if (window.innerWidth < 760) setVideoSrc(smallHeroVideo);
