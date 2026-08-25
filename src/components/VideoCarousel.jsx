@@ -115,7 +115,7 @@ const VideoCarousel = () => {
 
       return () => gsap.ticker.remove(animUpdate);
     }
-  }, [videoId, startPlay, isPlaying]);
+  }, [videoId, isPlaying]);
 
   const handleProcess = (type, i) => {
     switch (type) {
