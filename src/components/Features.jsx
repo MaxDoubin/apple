@@ -18,7 +18,9 @@ const Features = () => {
       },
       onComplete: () => {
         const video = videoRef.current;
-        if (video) video.play();
+        if (!video) return;
+
+        video.play().catch(() => undefined);
       },
     });
 
