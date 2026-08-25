@@ -48,8 +48,16 @@ const VideoCarousel = () => {
 
     if (!activeVideo || loadedData.length < hightlightsSlides.length) return;
 
-    if (!isPlaying) activeVideo.pause();
-    else if (startPlay) activeVideo.play();
+    if (!isPlaying) {
+      activeVideo.pause();
+      return;
+    }
+
+    if (startPlay) {
+      activeVideo.play().catch(() => {
+        setVideo((current) => ({ ...current, isPlaying: false }));
+      });
+    }
   }, [startPlay, videoId, isPlaying, loadedData]);
 
   const handleLoadedMetadata = (i, e) => setLoadedData((pre) => [...pre, e]);
