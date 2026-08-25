@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 import { pauseImg, playImg, replayImg } from "../assets";
-import { hightlightsSlides } from "../constants";
+import { highlightsSlides } from "../constants";
 
 const VideoCarousel = () => {
   const videoRef = useRef([]);
@@ -46,7 +46,7 @@ const VideoCarousel = () => {
   useEffect(() => {
     const activeVideo = videoRef.current[videoId];
 
-    if (!activeVideo || loadedData.length < hightlightsSlides.length) return;
+    if (!activeVideo || loadedData.length < highlightsSlides.length) return;
 
     if (!isPlaying) {
       activeVideo.pause();
@@ -103,7 +103,7 @@ const VideoCarousel = () => {
 
       const animUpdate = () => {
         const activeVideo = videoRef.current[videoId];
-        const activeSlide = hightlightsSlides[videoId];
+        const activeSlide = highlightsSlides[videoId];
 
         if (!activeVideo || !activeSlide) return;
 
@@ -144,7 +144,7 @@ const VideoCarousel = () => {
   return (
     <>
       <div className="flex items-center">
-        {hightlightsSlides.map((list, i) => (
+        {highlightsSlides.map((list, i) => (
           <div key={list.id} className="carousel-slide pr-10 sm:pr-20">
             <div className="video-carousel_container">
               <div className="flex-center size-full overflow-hidden rounded-3xl bg-black">
@@ -155,7 +155,7 @@ const VideoCarousel = () => {
                   aria-hidden="true"
                   ref={(el) => (videoRef.current[i] = el)}
                   onEnded={() =>
-                    i < hightlightsSlides.length - 1
+                    i < highlightsSlides.length - 1
                       ? handleProcess("video-end", i)
                       : handleProcess("video-last")
                   }
@@ -189,7 +189,7 @@ const VideoCarousel = () => {
           aria-hidden="true"
           className="flex-center rounded-full bg-gray-300 px-7 py-5 backdrop-blur"
         >
-          {hightlightsSlides.map((slide, i) => (
+          {highlightsSlides.map((slide, i) => (
             <span
               key={slide.id}
               ref={(el) => (videoDivRef.current[i] = el)}
