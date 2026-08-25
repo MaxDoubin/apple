@@ -130,6 +130,7 @@ const Model = () => {
                     <button
                       type="button"
                       aria-label={item.title}
+                      aria-pressed={model.title === item.title}
                       className="w-6 h-6 rounded-full mx-2 cursor-pointer"
                       style={{ backgroundColor: item.color[0] }}
                       onClick={() => setModel(item)}
