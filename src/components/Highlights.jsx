@@ -15,6 +15,7 @@ const Highlights = () => {
   return (
     <section
       id="highlights"
+      aria-labelledby="title"
       className="common-padding bg-zinc h-full w-full overflow-hidden"
     >
       <div className="screen-max-width">
