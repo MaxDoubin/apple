@@ -27,7 +27,7 @@ const Highlights = () => {
           <div className="flex flex-wrap items-end gap-5">
             <p className="link">
               Watch the film
-              <img src={watchImg} alt="Watch" className="ml-2" />
+              <img src={watchImg} alt="" className="ml-2" />
             </p>
             <p className="link">
               Watch the event
