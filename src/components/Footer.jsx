@@ -21,14 +21,16 @@ const Footer = () => {
             educational project.
           </p>
 
-          <div className="flex">
+          <ul className="flex" aria-label="Project policy labels">
             {footerLinks.map((link, i) => (
-              <p key={link} className="text-gray text-xs font-semibold">
+              <li key={link} className="text-gray text-xs font-semibold">
                 <span className="mx-2">{link}</span>
-                {i !== footerLinks.length - 1 && "|"}
-              </p>
+                {i !== footerLinks.length - 1 && (
+                  <span aria-hidden="true">|</span>
+                )}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </footer>
