@@ -74,6 +74,7 @@ const Features = () => {
               <video
                 playsInline
                 id="explore-video"
+                aria-hidden="true"
                 className="size-full object-cover object-center"
                 preload="none"
                 muted
