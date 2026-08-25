@@ -29,8 +29,13 @@ const Navbar = () => {
           <a href="#">
             <img src={bagImg} alt="Bag" width={18} height={18} />
           </a>
-          <a href={sourceCode} target="_blank" rel="noreferrer noopener">
-            <img src={githubImg} alt="GitHub source code" width={18} height={18} />
+          <a
+            href={sourceCode}
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="View source code on GitHub"
+          >
+            <img src={githubImg} alt="" width={18} height={18} />
           </a>
         </div>
       </nav>
